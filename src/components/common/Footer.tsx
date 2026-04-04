@@ -127,19 +127,38 @@ function Footer() {
             </h4>
             <div className="flex gap-4">
               {[
-                { icon: <FaFacebookF size={18} />, bg: "bg-blue-600" },
-                { icon: <FaTiktok size={18} />, bg: "bg-black" },
-                { icon: <FaWhatsapp size={22} />, bg: "bg-green-500" },
-                { icon: <FaLinkedinIn size={18} />, bg: "bg-blue-400" },
+                {
+                  icon: <FaFacebookF size={18} />,
+                  bg: "bg-blue-600",
+                  url: "https://www.facebook.com/share/18cojRAkzs/?mibextid=wwXIfr",
+                },
+                {
+                  icon: <FaTiktok size={18} />,
+                  bg: "bg-black",
+                  url: "https://www.tiktok.com/@unlock.wealth.digital?_r=1&_t=ZS-95G7HiUypaz",
+                },
+                {
+                  icon: <FaWhatsapp size={22} />,
+                  bg: "bg-green-500",
+                  url: "https://wa.me/971504632722",
+                },
+                {
+                  icon: <FaLinkedinIn size={18} />,
+                  bg: "bg-blue-400",
+                  url: "#",
+                },
               ].map((social, idx) => (
-                <motion.div
+                <motion.a
                   key={idx}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.15, rotate: 5 }}
                   whileTap={{ scale: 0.95 }}
                   className={`w-10 h-10 md:w-12 md:h-12 ${social.bg} text-white rounded-full flex items-center justify-center cursor-pointer shadow-md`}
                 >
                   {social.icon}
-                </motion.div>
+                </motion.a>
               ))}
             </div>
           </div>
