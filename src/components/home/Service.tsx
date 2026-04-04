@@ -1,9 +1,11 @@
 import { motion, type Variants } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import Service1 from "../../assets/sevice1.jpg";
 import Service2 from "../../assets/service2.jpg";
 import Service3 from "../../assets/service3.jpg";
 
 function Service() {
+  const { t } = useTranslation();
   const images = [Service1, Service2, Service3];
 
   const fadeInUp: Variants = {
@@ -26,9 +28,9 @@ function Service() {
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-7xl font-medium text-center text-gray-900 tracking-tight"
+        className="text-5xl md:text-7xl font-medium text-center text-gray-900 tracking-tight"
       >
-        Our Service
+        {t("services.main_title")}
       </motion.h2>
 
       {/* Cards Row */}
@@ -45,10 +47,8 @@ function Service() {
             variants={fadeInUp}
             className="relative group"
           >
-            {/* The Gradient Border Effect */}
             <div className="absolute -inset-0.5 service-card-glow rounded-[2.5rem] opacity-80 group-hover:opacity-100 transition-opacity"></div>
 
-            {/* Content Box */}
             <div className="relative bg-white rounded-[2.4rem] overflow-hidden h-64 md:h-60 flex items-center justify-center p-1">
               <img
                 src={img}
@@ -60,7 +60,7 @@ function Service() {
         ))}
       </motion.div>
 
-      {/* Pricing Banner - Mobile Responsive Text */}
+      {/* Pricing Banner */}
       <motion.div
         className="max-w-5xl mx-auto mt-12 px-2"
         initial={{ opacity: 0, scale: 0.95 }}
@@ -69,19 +69,17 @@ function Service() {
         viewport={{ once: true }}
       >
         <div className="relative border border-gray-200 rounded-3xl overflow-hidden bg-white shadow-sm">
-          {/* Background Blue Fade */}
           <div className="absolute inset-0 bg-banner-soft-blue w-full md:w-1/2 pointer-events-none opacity-50"></div>
 
-          {/* Text Content */}
           <div className="relative px-6 py-8 md:px-12 md:py-10 flex flex-col gap-4">
-            <h3 className="text-3xl md:text-[50px] font-black text-[#1a1a1a] tracking-tighter uppercase italic leading-none flex flex-wrap gap-x-4">
-              Start Your Journey:
+            <h3 className="text-3xl md:text-[45px] font-black text-[#1a1a1a] tracking-tighter uppercase italic leading-tight flex flex-wrap items-center gap-x-4">
+              {t("services.journey_start")}
               <span className="line-through opacity-40">$300</span>
               <span className="text-[#3B82F6]">$200</span>
             </h3>
 
-            <p className="text-3xl md:text-[50px] font-black text-[#1a1a1a] tracking-tighter uppercase italic leading-none">
-              International Digital Residency
+            <p className="text-3xl md:text-[45px] font-black text-[#1a1a1a] tracking-tighter uppercase italic leading-none">
+              {t("services.residency_title")}
             </p>
           </div>
         </div>

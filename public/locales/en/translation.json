@@ -1,0 +1,190 @@
+{
+  "navbar": {
+    "home": "Home",
+    "service": "Service",
+    "contact": "Contact",
+    "lang_toggle": "မြန်မာ"
+  },
+  "hero": {
+    "title": "Unlock Wealth Digital",
+    "description": "Building peaceful, powerful, and high-converting digital spaces for introverted entrepreneurs and soulful brands.",
+    "cta_button": "Start Your Journey"
+  },
+
+  "welcome": {
+    "title": "Welcome!",
+    "description_1": "\"In a world of noise and uncertainty, your digital presence should be your sanctuary. We believe that your career and business are extensions of your inner peace.\"",
+    "description_2": "Unlock Wealth Resort Academy was founded to harmonize professional excellence with holistic well-being. We don’t just build websites; we curate digital spaces that protect your energy and reflect your true potential.\"",
+    "mission_title": "Our mission",
+    "mission_text": "\"To empower individuals by building high-quality digital identities that harmonize professional success with mental well-being.\"",
+    "vision_title": "Our vision",
+    "vision_text": "\"A world where every visionary has a serene digital home to thrive, regardless of the chaos in the physical world.\""
+  },
+
+  "services": {
+    "main_title": "Our Service",
+    "journey_start": "Start Your Journey:",
+    "residency_title": "International Digital Residency"
+  },
+  "residency": {
+    "title": "Start Your Journey: International Digital Residency",
+    "features": [
+      "Professional Website (UI/UX Optimized)",
+      "Custom Domain & Hosting (1 Year)",
+      "Mental Wellness Support Guides"
+    ],
+    "availability": "Only 2 slots available this month to ensure quality care."
+  },
+  "reviews_faqs": {
+    "reviews_title": "Resort Reviews",
+    "faqs_title": "FAQs",
+    "cta_button": "\"Receive Abundance Updates\"",
+    "reviews_list": [
+      {
+        "quote": "\"Starting my portfolio felt like a mountain, but the Resort made it feel like a walk in the park. I finally have a digital home I'm proud of.\"",
+        "name": "Wendy S."
+      },
+      {
+        "quote": "\"As an introvert, I struggled to show my work. Now, my website does the talking for me. The mental support guides were a huge bonus!\"",
+        "name": "Hailey C."
+      },
+      {
+        "quote": "\"Professional, calm, and affordable. The $100 package is exactly what SMEs in our region need right now.\"",
+        "name": "Thomas L."
+      }
+    ],
+    "faqs_list": [
+      {
+        "question": "What exactly is included in the Residency?",
+        "answer": "You get a professional website (UI/UX optimized), a custom .com domain with hosting for 1 year, and our exclusive mental wellness guides to help you stay focused."
+      },
+      {
+        "question": "I'm an introvert: do I need to attend many meetings?",
+        "answer": "Not at all! We use a simple text-based discovery form. We value your energy and keep the process quiet and efficient."
+      },
+      {
+        "question": "Is there any hidden cost?",
+        "answer": "No hidden fees. The Special rate covers everything for the first year. We want to make high-quality digital presence accessible for everyone."
+      }
+    ]
+  },
+  "service_hero": {
+    "title": "Elevate Your Digital Presence",
+    "description": "Ready to transform your brand into a digital masterpiece? We craft bespoke websites and web applications tailored to your unique energy, industry, and audience. Whether you are a creative visionary, a local business, or a holistic guide, we have the perfect digital solution for you."
+  },
+
+  "service_list": {
+    "section_title": "Our Service",
+    "items": [
+      {
+        "id": 1,
+        "title": "Premium Website Package",
+        "points": [
+          {
+            "label": "UI & UX Design",
+            "text": "Stunning, user-centered interfaces."
+          },
+          {
+            "label": "Portfolio Creation",
+            "text": "Beautifully showcase your work."
+          },
+          {
+            "label": "Domain & Hosting",
+            "text": "Fully covered for your first year."
+          },
+          {
+            "label": "FengShui Business Naming",
+            "text": "\"Abundant Selection\" to attract prosperity."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Custom Web App Package (Negotiable)",
+        "points": [
+          {
+            "label": "Complete Design & Portfolio",
+            "text": "Advanced UI/UX tailored to your app's needs."
+          },
+          {
+            "label": "Free Domain & Hosting",
+            "text": "First year completely free."
+          },
+          {
+            "label": "FengShui Business Naming",
+            "text": "Start your venture with the right energy."
+          },
+          {
+            "label": "1st Year Maintenance & 24/7 Service",
+            "text": "Uninterrupted, round-the-clock technical support."
+          }
+        ]
+      }
+    ]
+  },
+
+  "solutions": {
+    "main_title": "Tailored Solutions for Your Brands",
+    "labels": {
+      "target": "Target",
+      "experience": "Experience"
+    },
+    "items": [
+      {
+        "title": "The Interactive \"Bento-Box\" Portfolio",
+        "target": "Digital creatives, product designers, and developers.",
+        "experience": "A sleek, modular, and dynamic grid that makes your case studies pop. Show your digital mastery instantly."
+      },
+      {
+        "title": "The Frictionless SME \"Digital Storefront\"",
+        "target": "Hyper-local SMEs (specialty coffee roasters, boutique hospitality, service agencies).",
+        "experience": "A smooth, zero-friction user journey designed to convert local traffic into loyal, paying customers."
+      },
+      {
+        "title": "The Scrollytelling Wellness Academy",
+        "target": "Mentors, holistic wealth coaches, and digital retreat platforms.",
+        "experience": "Immersive, story-driven navigation that guides clients through a calming journey of healing, learning, and growth."
+      },
+      {
+        "title": "The Infinite Horizontal Visual Exhibition",
+        "target": "Photographers, visual artists, and creative competition entrants.",
+        "experience": "A cinematic, side-scrolling gallery that gives your visual art the prestigious, museum-quality exhibition it deserves."
+      },
+      {
+        "title": "The Atmospheric \"Energy Check-In\" Portal",
+        "target": "Esoteric consultants (Tarot, Astrology, Feng Shui, Reiki).",
+        "experience": "Deeply mystical, visually atmospheric designs that instantly connect with your clients' spiritual needs before they even book a session."
+      }
+    ]
+  },
+  "contacthero": {
+    "title": "Get In Touch",
+    "description": "Ready to build your digital sanctuary? Let's start a conversation about your vision."
+  },
+  "contact": {
+    "success_title": "Success!",
+    "success_msg": "Message has been sent successfully.",
+    "error_title": "Error!",
+    "error_msg": "Something went wrong. Please try again.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "placeholder_name": "Your Name",
+      "placeholder_email": "hello@example.com",
+      "placeholder_msg": "Tell me about your project...",
+      "send": "Send Message",
+      "sending": "Sending..."
+    }
+  },
+  "footer": {
+    "connect_title": "Let's connect",
+    "guide_title": "Your Guide at the Resort",
+    "intro_text": "I'm Helen Thant, a UI/UX Designer and fellow introvert. Blending my hospitality background with digital design, I'm here to help you build a peaceful, powerful digital sanctuary. Let's create a space that speaks for you, without the noise.",
+    "labels": {
+      "phone": "Phone",
+      "email": "Email",
+      "social": "Social Media"
+    }
+  }
+}

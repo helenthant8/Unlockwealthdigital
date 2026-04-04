@@ -1,49 +1,36 @@
 import { motion, type Variants } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import WendyPhoto from "../../assets/pp1.jpg";
 import HaileyPhoto from "../../assets/pp2.jpg";
 import ThomasPhoto from "../../assets/pp3.jpg";
 import ResortImage from "../../assets/resort.jpg";
 import LeafSVG from "../../assets/leaf.jpg";
 
-function ResortReviewsAndFaqs() {
-  const reviews = [
-    {
-      photo: WendyPhoto,
-      quote:
-        '"Starting my portfolio felt like a mountain, but the Resort made it feel like a walk in the park. I finally have a digital home I\'m proud of."',
-      name: "Wendy S.",
-    },
-    {
-      photo: HaileyPhoto,
-      quote:
-        '"As an introvert, I struggled to show my work. Now, my website does the talking for me. The mental support guides were a huge bonus!"',
-      name: "Hailey C.",
-    },
-    {
-      photo: ThomasPhoto,
-      quote:
-        '"Professional, calm, and affordable. The $100 package is exactly what SMEs in our region need right now."',
-      name: "Thomas L.",
-    },
-  ];
+interface Review {
+  quote: string;
+  name: string;
+  photo?: string;
+}
 
-  const faqs = [
-    {
-      question: "What exactly is included in the Residency?",
-      answer:
-        "You get a professional website (UI/UX optimized), a custom .com domain with hosting for 1 year, and our exclusive mental wellness guides to help you stay focused.",
-    },
-    {
-      question: "I'm an introvert: do I need to attend many meetings?",
-      answer:
-        "Not at all! We use a simple text-based discovery form. We value your energy and keep the process quiet and efficient.",
-    },
-    {
-      question: "Is there any hidden cost?",
-      answer:
-        "No hidden fees. The Special rate covers everything for the first year. We want to make high-quality digital presence accessible for everyone.",
-    },
-  ];
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+function ResortReviewsAndFaqs() {
+  const { t } = useTranslation();
+
+  const reviewPhotos = [WendyPhoto, HaileyPhoto, ThomasPhoto];
+  const reviewsData = t("reviews_faqs.reviews_list", {
+    returnObjects: true,
+  }) as Review[];
+
+  const reviews = reviewsData.map((review, index) => ({
+    ...review,
+    photo: reviewPhotos[index],
+  }));
+
+  const faqs = t("reviews_faqs.faqs_list", { returnObjects: true }) as FAQ[];
 
   // Animation Variants
   const fadeInUp: Variants = {
@@ -71,7 +58,7 @@ function ResortReviewsAndFaqs() {
             className="space-y-4"
           >
             <h2 className="text-4xl font-black text-resort-blue-header tracking-tighter uppercase italic leading-[1.1]">
-              Resort Reviews
+              {t("reviews_faqs.reviews_title")}
             </h2>
           </motion.div>
 
@@ -95,7 +82,7 @@ function ResortReviewsAndFaqs() {
             className="pt-12 md:pt-24 space-y-4"
           >
             <h2 className="text-4xl font-black text-resort-blue-header tracking-tighter uppercase italic leading-[1.1]">
-              FAQs
+              {t("reviews_faqs.faqs_title")}
             </h2>
           </motion.div>
 
@@ -183,7 +170,7 @@ function ResortReviewsAndFaqs() {
             className="pt-16 md:pt-20 pb-10"
           >
             <button className="w-full md:w-fit bg-black text-white px-10 py-5 rounded-2xl font-bold text-lg md:text-xl italic hover:bg-gray-800 transition-all hover:scale-105 active:scale-95">
-              "Receive Abundance Updates"
+              {t("reviews_faqs.cta_button")}
             </button>
           </motion.div>
         </div>

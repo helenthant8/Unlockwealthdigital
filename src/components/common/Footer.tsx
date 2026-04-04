@@ -1,4 +1,5 @@
 import { motion, type Variants } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import HelenPhoto from "../../assets/helen.jpg";
 import LogoCircle from "../../assets/logo.jpg";
 import {
@@ -9,7 +10,8 @@ import {
 } from "react-icons/fa";
 
 function Footer() {
-  // Animation Variants
+  const { t, i18n } = useTranslation();
+
   const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -34,8 +36,11 @@ function Footer() {
       >
         {/* Top Section */}
         <motion.div variants={fadeInUp} className="mb-12">
-          <h2 className="text-[50px] font-black text-blue-600 tracking-tighter uppercase italic leading-none">
-            Let's connect
+          <h2
+            key={i18n.language}
+            className="text-[50px] font-black text-blue-600 tracking-tighter uppercase italic leading-none"
+          >
+            {t("footer.connect_title")}
           </h2>
           <div className="w-full h-px bg-gray-200 mt-6 md:mt-10"></div>
         </motion.div>
@@ -46,7 +51,7 @@ function Footer() {
             variants={fadeInUp}
             className="text-2xl md:text-3xl text-gray-700 mb-8 md:mb-10 text-center lg:text-left"
           >
-            Your Guide at the Resort
+            {t("footer.guide_title")}
           </motion.h3>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
@@ -64,20 +69,17 @@ function Footer() {
               </div>
             </motion.div>
 
-            {/* Helen's Introduction */}
+            {/* Introduction */}
             <motion.div
               variants={fadeInUp}
               className="lg:col-span-5 text-center lg:text-left"
             >
               <p className="text-xl md:text-2xl text-gray-800 leading-relaxed font-medium italic">
-                "I'm Helen Thant, a UI/UX Designer and fellow introvert.
-                Blending my hospitality background with digital design, I'm here
-                to help you build a peaceful, powerful digital sanctuary. Let's
-                create a space that speaks for you, without the noise."
+                "{t("footer.intro_text")}"
               </p>
             </motion.div>
 
-            {/* Helen's Action Photo */}
+            {/* Photo */}
             <motion.div
               variants={fadeInUp}
               className="lg:col-span-4 flex justify-center lg:justify-end"
@@ -101,7 +103,7 @@ function Footer() {
           {/* Phone Info */}
           <div className="space-y-2 md:space-y-4">
             <h4 className="text-2xl font-black text-gray-900 uppercase italic tracking-tighter">
-              Phone
+              {t("footer.labels.phone")}
             </h4>
             <p className="text-xl md:text-2xl font-medium text-gray-800 tracking-tight">
               +971 504632722
@@ -111,7 +113,7 @@ function Footer() {
           {/* Email Info */}
           <div className="space-y-2 md:space-y-4">
             <h4 className="text-2xl font-black text-gray-900 uppercase italic tracking-tighter">
-              Email
+              {t("footer.labels.email")}
             </h4>
             <p className="text-xl md:text-2xl font-medium text-gray-800 tracking-tight break-all">
               helenthant369@gmail.com
@@ -121,7 +123,7 @@ function Footer() {
           {/* Social Media Links */}
           <div className="space-y-4 md:space-y-6 w-full md:w-auto">
             <h4 className="text-2xl font-black text-gray-900 uppercase italic tracking-tighter leading-none">
-              Social Media
+              {t("footer.labels.social")}
             </h4>
             <div className="flex gap-4">
               {[

@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 function Welcome() {
+  const { t } = useTranslation();
+
   // Animation variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -30,24 +33,15 @@ function Welcome() {
             variants={fadeInUp}
             className="text-5xl font-black text-[#1a1a1a] tracking-tighter uppercase italic leading-none"
           >
-            Welcome!
+            {t("welcome.title")}
           </motion.h2>
 
           <motion.div
             variants={fadeInUp}
             className="space-y-6 text-lg md:text-2xl text-gray-800 leading-relaxed font-medium max-w-5xl"
           >
-            <p>
-              "In a world of noise and uncertainty, your digital presence should
-              be your sanctuary. We believe that your career and business are
-              extensions of your inner peace."
-            </p>
-            <p>
-              Unlock Wealth Resort Academy was founded to harmonize professional
-              excellence with holistic well-being. We don’t just build websites;
-              we curate digital spaces that protect your energy and reflect your
-              true potential."
-            </p>
+            <p>{t("welcome.description_1")}</p>
+            <p>{t("welcome.description_2")}</p>
           </motion.div>
         </div>
 
@@ -56,13 +50,11 @@ function Welcome() {
           {/* Our Mission */}
           <motion.div variants={fadeInUp} className="space-y-6">
             <h3 className="text-5xl font-black text-[#1a1a1a] tracking-tighter uppercase italic leading-none">
-              Our mission
+              {t("welcome.mission_title")}
             </h3>
             <div className="w-full border-t border-soft-blue pt-8">
               <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-md font-medium">
-                "To empower individuals by building high-quality digital
-                identities that harmonize professional success with mental
-                well-being."
+                {t("welcome.mission_text")}
               </p>
             </div>
           </motion.div>
@@ -70,12 +62,11 @@ function Welcome() {
           {/* Our Vision */}
           <motion.div variants={fadeInUp} className="space-y-6">
             <h3 className="text-5xl font-black text-[#1a1a1a] tracking-tighter uppercase italic leading-none">
-              Our vision
+              {t("welcome.vision_title")}
             </h3>
             <div className="w-full border-t border-soft-blue pt-8">
               <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-md font-medium">
-                "A world where every visionary has a serene digital home to
-                thrive, regardless of the chaos in the physical world."
+                {t("welcome.vision_text")}
               </p>
             </div>
           </motion.div>

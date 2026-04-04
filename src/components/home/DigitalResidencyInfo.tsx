@@ -1,12 +1,11 @@
 import { motion, type Variants } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import BusinessWoman from "../../assets/businesswoman.jpg";
 
 function DigitalResidencyInfo() {
-  const features = [
-    "Professional Website (UI/UX Optimized)",
-    "Custom Domain & Hosting (1 Year)",
-    "Mental Wellness Support Guides",
-  ];
+  const { t } = useTranslation();
+
+  const features = t("residency.features", { returnObjects: true }) as string[];
 
   // Animation Variants
   const fadeInUp: Variants = {
@@ -34,7 +33,6 @@ function DigitalResidencyInfo() {
           transition={{ duration: 1 }}
         >
           <div className="relative p-1.5 rounded-[40px] bg-hero-border-gradient w-full max-w-125">
-            {/* Inner Image Container */}
             <div className="relative bg-white rounded-[2.4rem] overflow-hidden aspect-137.5/150 shadow-xl">
               <img
                 src={BusinessWoman}
@@ -42,8 +40,6 @@ function DigitalResidencyInfo() {
                 className="w-full h-full object-cover"
               />
             </div>
-
-            {/* Floating Accent */}
             <div className="absolute -right-4 top-1/2 -translate-y-1/2 w-8 h-40 bg-brand-blue/20 blur-2xl -z-10"></div>
           </div>
         </motion.div>
@@ -58,11 +54,8 @@ function DigitalResidencyInfo() {
         >
           {/* Main Title */}
           <motion.div variants={fadeInUp} className="space-y-3">
-            <h2 className="text-4xl md:text-[50px] font-black text-[#1a1a1a] tracking-tight leading-[1.1] uppercase">
-              Start Your <br />
-              Journey: <br />
-              International <br />
-              Digital Residency
+            <h2 className="text-4xl md:text-[50px] font-black text-[#1a1a1a] tracking-tight leading-[1.2] uppercase italic">
+              {t("residency.title")}
             </h2>
           </motion.div>
 
@@ -73,16 +66,16 @@ function DigitalResidencyInfo() {
           >
             <div className="border border-gray-200 rounded-[2.5rem] p-8 md:p-12 bg-white/40 backdrop-blur-sm shadow-sm">
               <ul className="space-y-5">
-                {features.map((feature, index) => (
-                  <li
-                    key={index}
-                    className="text-lg md:text-xl text-gray-800 font-medium flex items-center"
-                  >
-                    {/* Square black bullet */}
-                    <span className="inline-block w-2.5 h-2.5 bg-black mr-4 shrink-0"></span>
-                    {feature}
-                  </li>
-                ))}
+                {Array.isArray(features) &&
+                  features.map((feature, index) => (
+                    <li
+                      key={index}
+                      className="text-lg md:text-xl text-gray-800 font-medium flex items-center"
+                    >
+                      <span className="inline-block w-2.5 h-2.5 bg-black mr-4 shrink-0"></span>
+                      {feature}
+                    </li>
+                  ))}
               </ul>
             </div>
           </motion.div>
@@ -90,7 +83,7 @@ function DigitalResidencyInfo() {
           {/* Availability Text */}
           <motion.div variants={fadeInUp} className="pt-2">
             <p className="text-2xl md:text-3xl text-gray-900 font-bold leading-tight max-w-lg italic">
-              Only 2 slots available this month to ensure quality care.
+              {t("residency.availability")}
             </p>
           </motion.div>
         </motion.div>
