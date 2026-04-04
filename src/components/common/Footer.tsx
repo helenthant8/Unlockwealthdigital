@@ -1,7 +1,7 @@
 import { motion, type Variants } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import HelenPhoto from "../../assets/helen.jpg";
-import LogoCircle from "../../assets/logo.jpg";
+import LogoCircle from "../../assets/logo.png";
 import {
   FaFacebookF,
   FaTiktok,

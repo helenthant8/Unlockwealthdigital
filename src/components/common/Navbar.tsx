@@ -4,6 +4,7 @@ import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { useTranslation } from "react-i18next";
 import { MdLanguage } from "react-icons/md";
+import Logo from "../../assets/logo.png";
 
 function Navbar() {
   const { t, i18n } = useTranslation();
@@ -28,9 +29,7 @@ function Navbar() {
         {/* Logo Section */}
         <Link to="/" className="flex items-center gap-3">
           <div className="w-8 h-8 flex items-center justify-center">
-            <svg viewBox="0 0 24 24" className="fill-brand-blue w-full h-full">
-              <path d="M12 2L4.5 20.29L5.21 21L12 18L18.79 21L19.5 20.29L12 2Z" />
-            </svg>
+            <img src={Logo} alt="Resort Logo" className="w-full h-full" />
           </div>
           <span className="font-bold text-lg md:text-xl text-brand-dark tracking-tight">
             {t("hero.title")}
