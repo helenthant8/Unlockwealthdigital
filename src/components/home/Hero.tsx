@@ -1,23 +1,29 @@
+import { motion } from "framer-motion";
 import Herophoto from "../../assets/hero.jpg";
 
 function Hero() {
   return (
-    <section className="max-w-7xl mx-auto px-6 mt-16 flex items-center justify-between min-h-[70vh]">
+    <section className="max-w-7xl mx-auto px-6 mt-16 flex flex-col lg:flex-row items-center justify-between min-h-[70vh] gap-10">
       {/* Left Content */}
-      <div className="w-1/2 flex flex-col gap-10">
+      <motion.div
+        className="w-full lg:w-1/2 flex flex-col gap-10 order-2 lg:order-1"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="space-y-4">
-          <h1 className="text-[100px] font-bold text-hero-dark leading-[1.1] tracking-tight">
+          <h1 className="text-5xl md:text-[90px] font-bold text-hero-dark leading-[1.1] tracking-tight">
             Unlock Your <br />
-            <span className="inline-block">Digital Home</span>
+            <span className="inline-block mb-5">Digital Home</span>
           </h1>
 
-          <p className="text-3xl text-hero-dark/80 font-normal leading-relaxed max-w-md">
+          <p className="text-xl md:text-3xl text-hero-dark/80 font-normal leading-relaxed max-w-md">
             A sanctuary for your professional and inner growth.
           </p>
         </div>
 
         {/* Separator Line */}
-        <div className="w-separator h-px bg-separator"></div>
+        <div className="w-full lg:w-separator h-px bg-gray-200"></div>
 
         {/* CTA Button */}
         <button className="group w-fit flex items-center gap-4 bg-cta-gradient border border-brand-blue/40 px-8 py-4 rounded-2xl shadow-sm hover:shadow-md transition-all">
@@ -34,13 +40,18 @@ function Hero() {
             For your Professional Website
           </span>
         </button>
-      </div>
+      </motion.div>
 
       {/* Right Content */}
-      <div className="w-1/2 flex justify-end">
-        <div className="relative p-1.5 rounded-[40px] bg-hero-border-gradient">
+      <motion.div
+        className="w-full lg:w-1/2 flex justify-center lg:justify-end order-1 lg:order-2"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="relative p-1.5 rounded-[40px] bg-hero-border-gradient w-full max-w-137.5">
           {/* Inner Image Container */}
-          <div className="bg-[#FDFBF2] rounded-[34px] overflow-hidden w-137.5 h-112.5 shadow-inner">
+          <div className="bg-[#FDFBF2] rounded-[34px] overflow-hidden aspect-137.5/112.5 shadow-inner">
             <img
               src={Herophoto}
               alt="Digital Workspace"
@@ -51,7 +62,7 @@ function Hero() {
           {/* Floating Accent */}
           <div className="absolute -right-4 top-1/2 -translate-y-1/2 w-8 h-40 bg-brand-blue/20 blur-2xl -z-10"></div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

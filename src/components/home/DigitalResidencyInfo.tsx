@@ -1,3 +1,4 @@
+import { motion, type Variants } from "framer-motion";
 import BusinessWoman from "../../assets/businesswoman.jpg";
 
 function DigitalResidencyInfo() {
@@ -7,15 +8,34 @@ function DigitalResidencyInfo() {
     "Mental Wellness Support Guides",
   ];
 
+  // Animation Variants
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" as const },
+    },
+  };
+
+  const staggerContainer: Variants = {
+    visible: { transition: { staggerChildren: 0.15 } },
+  };
+
   return (
-    <section className="w-full bg-welcome-gradient py-24 px-6 overflow-hidden">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-16">
+    <section className="w-full bg-welcome-gradient py-16 md:py-24 px-6 overflow-hidden">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16">
         {/* Left Column */}
-        <div className="relative group p-1 flex justify-center md:justify-start">
-          {/* The Gradient Border Effect */}
-          <div className="relative p-1.5 rounded-[40px] bg-hero-border-gradient">
+        <motion.div
+          className="relative group flex justify-center lg:justify-start order-1"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+        >
+          <div className="relative p-1.5 rounded-[40px] bg-hero-border-gradient w-full max-w-125">
             {/* Inner Image Container */}
-            <div className="relative bg-white rounded-[2.4rem] overflow-hidden w-137.5 h-150">
+            <div className="relative bg-white rounded-[2.4rem] overflow-hidden aspect-137.5/150 shadow-xl">
               <img
                 src={BusinessWoman}
                 alt="Unlock Wealth Digital Residency"
@@ -26,28 +46,37 @@ function DigitalResidencyInfo() {
             {/* Floating Accent */}
             <div className="absolute -right-4 top-1/2 -translate-y-1/2 w-8 h-40 bg-brand-blue/20 blur-2xl -z-10"></div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Text and Features */}
-        <div className="space-y-12">
+        {/* Right Column */}
+        <motion.div
+          className="space-y-8 md:space-y-12 order-2"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           {/* Main Title */}
-          <div className="space-y-3">
-            <h2 className="text-[64px] font-black text-[#1a1a1a] tracking-tight leading-[1.1]">
+          <motion.div variants={fadeInUp} className="space-y-3">
+            <h2 className="text-4xl md:text-[50px] font-black text-[#1a1a1a] tracking-tight leading-[1.1] uppercase">
               Start Your <br />
               Journey: <br />
               International <br />
               Digital Residency
             </h2>
-          </div>
+          </motion.div>
 
-          {/* Features Box with Bullet List */}
-          <div className="border-t border-features-soft pt-10">
-            <div className="border border-features-soft rounded-4xl p-12 bg-white/40 shadow-sm">
-              <ul className="space-y-3 list-outside pl-5">
+          {/* Features Box */}
+          <motion.div
+            variants={fadeInUp}
+            className="border-t border-gray-200 pt-8 md:pt-10"
+          >
+            <div className="border border-gray-200 rounded-[2.5rem] p-8 md:p-12 bg-white/40 backdrop-blur-sm shadow-sm">
+              <ul className="space-y-5">
                 {features.map((feature, index) => (
                   <li
                     key={index}
-                    className="text-xl text-gray-800 font-medium relative flex items-center"
+                    className="text-lg md:text-xl text-gray-800 font-medium flex items-center"
                   >
                     {/* Square black bullet */}
                     <span className="inline-block w-2.5 h-2.5 bg-black mr-4 shrink-0"></span>
@@ -56,15 +85,15 @@ function DigitalResidencyInfo() {
                 ))}
               </ul>
             </div>
-          </div>
+          </motion.div>
 
           {/* Availability Text */}
-          <div className="pt-2">
-            <p className="text-3xl text-hero-dark/90 font-bold leading-tight max-w-lg">
+          <motion.div variants={fadeInUp} className="pt-2">
+            <p className="text-2xl md:text-3xl text-gray-900 font-bold leading-tight max-w-lg italic">
               Only 2 slots available this month to ensure quality care.
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
