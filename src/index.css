@@ -18,4 +18,30 @@
   .border-brand-soft {
     border-color: #dbeafe; /* blue-100 */
   }
+
+  /* Hero Component */
+  /* Text Colors */
+  .text-hero-dark {
+    color: #333333;
+  }
+
+  /* Separator & Accents */
+  .bg-separator {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  /* Hero Image Gradient Border */
+  .bg-hero-border-gradient {
+    background: linear-gradient(to bottom right, #C084FC, #A5CCFF, #6EE7B7);
+  }
+
+  /* Button Background Gradient */
+  .bg-cta-gradient {
+    background: linear-gradient(to right, #A5CCFF, #ffffff);
+  }
+
+  /* Specific Sizes */
+  .w-separator {
+    width: 32.5rem;
+  }
 }
