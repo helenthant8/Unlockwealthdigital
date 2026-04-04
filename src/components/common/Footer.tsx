@@ -163,6 +163,16 @@ function Footer() {
             </div>
           </div>
         </motion.div>
+
+        {/* Copyright */}
+        <motion.div
+          variants={fadeInUp}
+          className="mt-16 pt-8 border-t border-gray-100 flex flex-col md:flex-row items-center"
+        >
+          <p className="text-gray-500 font-medium">
+            © {new Date().getFullYear()} {t("unlockwealthdigital")}
+          </p>
+        </motion.div>
       </motion.div>
     </footer>
   );
