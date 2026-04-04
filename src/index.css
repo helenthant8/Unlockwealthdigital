@@ -44,4 +44,84 @@
   .w-separator {
     width: 32.5rem;
   }
+
+  /* Welcome Section Background Gradient */
+  .bg-welcome-gradient {
+    background: linear-gradient(to right, #A5CCFF 0%, #ffffff 100%);
+  }
+  
+  .border-soft-blue {
+    border-top: 1px solid #e2eeff;
+  }
+
+  /* Card Glow Border Gradient */
+  .service-card-glow {
+    background: linear-gradient(135deg, #A855F7 0%, #A5CCFF 50%, #6EE7B7 100%);
+  }
+
+  /* Pricing Box */
+  .bg-banner-soft-blue {
+    background: linear-gradient(to right, #A5CCFF 0%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  .border-features-soft {
+    border-color: #e2eeff;
+  }
+
+  /* Thin vertical line separating left/right sides */
+  .border-vertical-light {
+    border-left-width: 1px;
+    border-color: #f1f5f9; /* Slate 100 or similar soft line */
+  }
+
+  /* Font classes for the two distinct styles */
+  .font-heading-heavy {
+    font-weight: 900;
+    font-size: 2.25rem; /* text-4xl */
+    line-height: 1.25;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+  }
+
+  .font-body-normal {
+    font-weight: 400;
+    font-size: 1.125rem; /* text-lg */
+    line-height: 1.75;
+    letter-spacing: -0.025em;
+  }
+
+  /* Receive Abundance Updates button style */
+  .btn-abundance {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 2rem; /* px-8 */
+    padding-right: 2rem;
+    padding-top: 1rem; /* py-4 */
+    padding-bottom: 1rem;
+    border-radius: 0.75rem; /* rounded-xl */
+    background-color: #1a1a1a; /* brand dark */
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.125rem; /* text-lg */
+    transition-property: all;
+    transition-duration: 300ms;
+  }
+
+  .bg-resort-full-gradient {
+    background: linear-gradient(to right, #ffffff 0%, #ffffff 40%, #A5CCFF 100%);
+  }
+
+  .text-resort-blue-header {
+    color: #3B82F6;
+  }
+
+  /* Footer Gradient */
+  .bg-resort-gradient {
+    background: linear-gradient(to right, #A5CCFF 0%, #ffffff 60%);
+  }
+
+  .text-resort-blue {
+    color: #1d4ed8;
+  }
 }
