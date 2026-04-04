@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+@layer utilities {
+  /*  navbar */
+  .bg-nav-gradient {
+    background: linear-gradient(to right, #A5CCFF, rgba(255, 255, 255, 0.8));
+  }
+
+  /* Custom Brand Colors */
+  .text-brand-dark {
+    color: #1a1a1a;
+  }
+
+  .fill-brand-blue {
+    fill: #A5CCFF;
+  }
+
+  .border-brand-soft {
+    border-color: #dbeafe; /* blue-100 */
+  }
+}
