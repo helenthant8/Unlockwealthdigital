@@ -7,7 +7,6 @@ import EnergyPortal from "../../assets/energy-portal.jpg";
 function TailoredSolutions() {
   const { t, i18n } = useTranslation();
 
-  // Array ကို hardcode key များဖြင့် ဆောက်ထားခြင်းက re-render ဖြစ်တိုင်း translation အသစ်ကို ဆွဲယူစေပါတယ်
   const solutions = [
     {
       id: 1,

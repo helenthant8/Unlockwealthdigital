@@ -1,6 +1,6 @@
 import ServiceHero from "../components/service/Hero";
+import ServiceList from "../components/service/ServiceList";
 import TailoredSolutions from "../components/service/TailoredSolutions";
-import ServiceList from "../components/service/Servicelist";
 
 function ServicePage() {
   return (
