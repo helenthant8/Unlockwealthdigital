@@ -57,6 +57,12 @@ function DigitalResidencyInfo() {
             <h2 className="text-4xl md:text-[50px] font-black text-[#1a1a1a] tracking-tight leading-[1.2] uppercase italic">
               {t("residency.title")}
             </h2>
+            <h2 className="text-4xl md:text-[50px] font-black text-blue-700 tracking-tight leading-[1.2] uppercase italic">
+              {t("residency.title_one")}
+            </h2>
+            <h2 className="text-4xl md:text-[50px] font-black text-[#1a1a1a] tracking-tight leading-[1.2] uppercase italic">
+              {t("residency.title_two")}
+            </h2>
           </motion.div>
 
           {/* Features Box */}

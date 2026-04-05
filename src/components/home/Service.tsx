@@ -72,14 +72,17 @@ function Service() {
           <div className="absolute inset-0 bg-banner-soft-blue w-full md:w-1/2 pointer-events-none opacity-50"></div>
 
           <div className="relative px-6 py-8 md:px-12 md:py-10 flex flex-col gap-4">
-            <h3 className="text-3xl md:text-[45px] font-black text-[#1a1a1a] tracking-tighter uppercase italic leading-tight flex flex-wrap items-center gap-x-4">
+            <h3 className="text-3xl font-black text-[#1a1a1a] tracking-tighter uppercase italic leading-tight flex flex-wrap items-center gap-x-4">
               {t("services.journey_start")}
-              <span className="line-through opacity-40">$300</span>
-              <span className="text-[#3B82F6]">$200</span>
             </h3>
 
-            <p className="text-3xl md:text-[45px] font-black text-[#1a1a1a] tracking-tighter uppercase italic leading-none">
+            <p className="text-3xl font-black text-[#1a1a1a] tracking-tighter uppercase italic leading-none">
               {t("services.residency_title")}
+              <span className="text-blue-700">$200</span>
+            </p>
+
+            <p className="text-3xl font-black text-blue-700 tracking-tighter uppercase italic leading-none">
+              {t("services.residency_title_one")}
             </p>
           </div>
         </div>
