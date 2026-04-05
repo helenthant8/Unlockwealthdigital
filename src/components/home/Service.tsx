@@ -78,6 +78,7 @@ function Service() {
 
             <p className="text-3xl font-black text-[#1a1a1a] tracking-tighter uppercase italic leading-none">
               {t("services.residency_title")}
+              <span className="text-gray-500 line-through">$300 {""}</span>
               <span className="text-blue-700">$200</span>
             </p>
 
