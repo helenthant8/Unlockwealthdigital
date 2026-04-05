@@ -28,7 +28,7 @@ function Navbar() {
       <nav className="max-w-7xl mx-auto flex items-center justify-between bg-nav-gradient border border-brand-soft rounded-2xl px-6 md:px-8 py-3 shadow-sm backdrop-blur-md relative">
         {/* Logo Section */}
         <Link to="/" className="flex items-center gap-3">
-          <div className="w-8 h-8 flex items-center justify-center">
+          <div className="w-10 h-10 flex items-center justify-center">
             <img src={Logo} alt="Resort Logo" className="w-full h-full" />
           </div>
           <span className="font-bold text-lg md:text-xl text-brand-dark tracking-tight">

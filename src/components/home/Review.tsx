@@ -161,18 +161,6 @@ function ResortReviewsAndFaqs() {
               </motion.div>
             ))}
           </motion.div>
-
-          {/* Action Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="pt-16 md:pt-20 pb-10"
-          >
-            <button className="w-full md:w-fit bg-black text-white px-10 py-5 rounded-2xl font-bold text-lg md:text-xl italic hover:bg-gray-800 transition-all hover:scale-105 active:scale-95">
-              {t("reviews_faqs.cta_button")}
-            </button>
-          </motion.div>
         </div>
       </div>
     </section>

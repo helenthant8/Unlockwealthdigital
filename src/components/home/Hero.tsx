@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import Herophoto from "../../assets/hero.jpg";
+import { Link } from "react-router-dom";
 
 function Hero() {
   const { t } = useTranslation();
@@ -19,8 +20,12 @@ function Hero() {
             <span className="inline-block mb-5">{t("hero.title")}</span>
           </h1>
 
-          <p className="text-xl md:text-3xl text-hero-dark/80 font-normal leading-relaxed max-w-md">
-            {t("hero.description")}
+          <p className="text-2xl text-hero-dark font-normal leading-relaxed">
+            {t("hero.description_one")}
+          </p>
+
+          <p className="text-2xl text-hero-dark font-normal leading-relaxed">
+            {t("hero.description_two")}
           </p>
         </div>
 
@@ -28,20 +33,27 @@ function Hero() {
         <div className="w-full lg:w-separator h-px bg-gray-200"></div>
 
         {/* CTA Button */}
-        <button className="group w-fit min-h-16 flex items-center gap-4 bg-cta-gradient border border-brand-blue/40 px-8 py-4 rounded-2xl shadow-sm hover:shadow-md transition-all">
-          <div className="shrink-0 text-brand-blue">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12 22C12 22 19 18 19 12C19 6 12 2 12 2C12 2 5 6 5 12C5 18 12 22 12 22Z"
-                opacity="0.5"
-              />
-              <path d="M12 18C14.2091 18 16 16.2091 16 14C16 11.7909 14.2091 10 12 10C9.79086 10 8 11.7909 8 14C8 16.2091 9.79086 18 12 18Z" />
-            </svg>
-          </div>
-          <span className="font-bold text-hero-dark text-lg leading-normal whitespace-nowrap">
-            {t("hero.cta_button")}
-          </span>
-        </button>
+        <Link to="/service">
+          <button className="group w-fit min-h-16 flex items-center gap-4 bg-cta-gradient border border-brand-blue/40 px-8 py-4 rounded-2xl shadow-sm hover:shadow-md transition-all">
+            <div className="shrink-0 text-brand-blue">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 22C12 22 19 18 19 12C19 6 12 2 12 2C12 2 5 6 5 12C5 18 12 22 12 22Z"
+                  opacity="0.5"
+                />
+                <path d="M12 18C14.2091 18 16 16.2091 16 14C16 11.7909 14.2091 10 12 10C9.79086 10 8 11.7909 8 14C8 16.2091 9.79086 18 12 18Z" />
+              </svg>
+            </div>
+            <span className="font-bold text-hero-dark text-lg leading-normal whitespace-nowrap">
+              {t("hero.cta_button")}
+            </span>
+          </button>
+        </Link>
       </motion.div>
 
       {/* Right Content */}
