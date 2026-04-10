@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import Partical from "../../utils/Partical";
+import { easeOut } from "framer-motion";
 
 function Welcome() {
   const { t } = useTranslation();
@@ -10,7 +11,7 @@ function Welcome() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: { duration: 0.8, ease: easeOut },
     },
   };
 
