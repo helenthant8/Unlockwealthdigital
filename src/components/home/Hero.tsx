@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import Partical from "../../utils/Partical";
+import { easeOut } from "framer-motion";
 
 function Hero() {
   const { t } = useTranslation();
@@ -19,7 +20,7 @@ function Hero() {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+      transition: { duration: 0.8, ease: easeOut },
     },
   };
 
