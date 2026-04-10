@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
 import LogoCircle from "../../assets/logo.png";
 import {
   FaFacebookF,
@@ -9,8 +8,6 @@ import {
 } from "react-icons/fa";
 
 function Footer() {
-  const { t } = useTranslation();
-
   return (
     <footer className="w-full bg-white py-8 px-6 relative">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
