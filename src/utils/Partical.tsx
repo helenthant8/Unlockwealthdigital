@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
 
 const generateParticles = (count: number) => {
   return Array.from({ length: count }, (_, i) => ({
@@ -15,8 +14,6 @@ const generateParticles = (count: number) => {
 const particles = generateParticles(70);
 
 const Partical = () => {
-  const { t } = useTranslation();
-
   return (
     <>
       {/* Animated Gradient Glows */}
