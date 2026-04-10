@@ -1,79 +1,98 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import Herophoto from "../../assets/hero.jpg";
 import { Link } from "react-router-dom";
+import Partical from "../../utils/Partical";
 
 function Hero() {
   const { t } = useTranslation();
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 25, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
+
   return (
-    <section className="max-w-7xl mx-auto px-6 mt-16 flex flex-col lg:flex-row items-center justify-between min-h-[70vh] gap-10 pb-20">
-      {/* Left Content */}
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden p-20">
+      {/* --- Gradient & Particle Background --- */}
+      {/* Background Abstract Grid */}
+      <div className="absolute inset-0 z-0">
+        {/* Main Gradient Overlay */}
+        <div className="absolute inset-0 bg-linear-to-br from-[#99C8FF] via-white to-[#99C8FF] opacity-90" />
+
+        <Partical />
+      </div>
+
       <motion.div
-        className="w-full lg:w-1/2 flex flex-col gap-10 order-2 lg:order-1"
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
+        className="max-w-7xl mx-auto px-6 flex flex-col items-center justify-center relative z-10 text-center"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
       >
-        <div className="space-y-4">
-          <h1 className="text-6xl font-bold text-hero-dark leading-[1.1] tracking-tight">
-            <span className="inline-block mb-5">{t("hero.title")}</span>
-          </h1>
+        <div className="flex flex-col space-y-10 items-center">
+          <motion.div
+            variants={itemVariants}
+            className="space-y-6 flex flex-col items-center"
+          >
+            {/* Animated Tag */}
+            <motion.span
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="px-5 py-2 rounded-full border border-blue-900 bg-blue-900 text-yellow-500 text-sm font-bold tracking-[0.2em] uppercase backdrop-blur-md"
+            >
+              Elevating Your Vision
+            </motion.span>
 
-          <p className="text-2xl text-hero-dark font-normal leading-relaxed">
-            {t("hero.description_one")}
-          </p>
+            {/* Gradient Text Header */}
+            <h1 className="text-6xl lg:text-9xl font-black leading-none tracking-tighter text-white">
+              <span className="bg-linear-to-r from-black via-blue-600 to-black bg-clip-text text-transparent">
+                {t("hero.title")}
+              </span>
+            </h1>
 
-          <p className="text-2xl text-hero-dark font-normal leading-relaxed">
-            {t("hero.description_two")}
-          </p>
-        </div>
-
-        {/* Separator Line */}
-        <div className="w-full lg:w-separator h-px bg-gray-200"></div>
-
-        {/* CTA Button */}
-        <Link to="/service">
-          <button className="group w-fit min-h-16 flex items-center gap-4 bg-cta-gradient border border-brand-blue/40 px-8 py-4 rounded-2xl shadow-sm hover:shadow-md transition-all">
-            <div className="shrink-0 text-brand-blue">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M12 22C12 22 19 18 19 12C19 6 12 2 12 2C12 2 5 6 5 12C5 18 12 22 12 22Z"
-                  opacity="0.5"
-                />
-                <path d="M12 18C14.2091 18 16 16.2091 16 14C16 11.7909 14.2091 10 12 10C9.79086 10 8 11.7909 8 14C8 16.2091 9.79086 18 12 18Z" />
-              </svg>
+            <div className="max-w-3xl mx-auto">
+              <p className="text-xl lg:text-3xl font-semibold leading-snug">
+                {t("hero.description_one")}
+              </p>
+              <p className="text-lg bg-linear-to-r from-blue-900 via-blue-600 to-blue-400 bg-clip-text text-transparent mt-4 font-medium opacity-80">
+                {t("hero.description_two")}
+              </p>
             </div>
-            <span className="font-bold text-hero-dark text-lg leading-normal whitespace-nowrap">
-              {t("hero.cta_button")}
-            </span>
-          </button>
-        </Link>
-      </motion.div>
+          </motion.div>
 
-      {/* Right Content */}
-      <motion.div
-        className="w-full lg:w-1/2 flex justify-center lg:justify-end order-1 lg:order-2"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="relative p-1.5 rounded-[40px] bg-hero-border-gradient w-full max-w-137.5">
-          <div className="bg-[#FDFBF2] rounded-[34px] overflow-hidden aspect-137.5/112.5 shadow-inner">
-            <img
-              src={Herophoto}
-              alt="Digital Workspace"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="absolute -right-4 top-1/2 -translate-y-1/2 w-8 h-40 bg-brand-blue/20 blur-2xl -z-10"></div>
+          {/* Buttons with Gradient & Hover Effects */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap gap-6 justify-center pt-8"
+          >
+            <Link to="/service">
+              <motion.button
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0px 0px 20px rgba(0, 204, 255, 0.4)",
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-blue-900 text-white px-12 py-5 rounded-2xl font-black text-xl shadow-xl transition-all"
+              >
+                {t("hero.cta_button")}
+              </motion.button>
+            </Link>
+          </motion.div>
         </div>
       </motion.div>
+
+      {/* <div className="inset-0 bg-[#00CCFF] opacity-90" /> */}
     </section>
   );
 }

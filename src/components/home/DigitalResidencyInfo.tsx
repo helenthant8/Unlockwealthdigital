@@ -1,98 +1,112 @@
 import { motion, type Variants } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import BusinessWoman from "../../assets/businesswoman.jpg";
+import BusinessWoman from "../../assets/1.svg";
+import Partical from "../../utils/Partical";
 
 function DigitalResidencyInfo() {
   const { t } = useTranslation();
-
   const features = t("residency.features", { returnObjects: true }) as string[];
 
-  // Animation Variants
   const fadeInUp: Variants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" as const },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
-  const staggerContainer: Variants = {
-    visible: { transition: { staggerChildren: 0.15 } },
-  };
-
   return (
-    <section className="w-full bg-welcome-gradient py-16 md:py-24 px-6 overflow-hidden">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-16">
-        {/* Left Column */}
+    <section className="w-full bg-linear-to-br from-[#99C8FF] via-white to-[#99C8FF] opacity-90 py-20 md:py-28 px-6 relative overflow-hidden">
+      {/* Background Accent */}
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_30%,rgba(0,204,255,0.05),transparent_50%)]" />
+
+      <Partical />
+
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12 md:gap-20 relative z-10">
+        {/* Left Column - Image */}
         <motion.div
-          className="relative group flex justify-center lg:justify-start order-1"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          className="relative"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1 }}
         >
-          <div className="relative p-1.5 rounded-[40px] bg-hero-border-gradient w-full max-w-125">
-            <div className="relative bg-white rounded-[2.4rem] overflow-hidden aspect-137.5/150 shadow-xl">
-              <img
-                src={BusinessWoman}
-                alt="Unlock Wealth Digital Residency"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute -right-4 top-1/2 -translate-y-1/2 w-8 h-40 bg-brand-blue/20 blur-2xl -z-10"></div>
-          </div>
+          <img src={BusinessWoman} alt="Digital Residency" />
+
+          <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-[#00CCFF] rounded-3xl -z-10 opacity-20 blur-xl" />
         </motion.div>
 
-        {/* Right Column */}
-        <motion.div
-          className="space-y-8 md:space-y-12 order-2"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          {/* Main Title */}
-          <motion.div variants={fadeInUp} className="space-y-3">
-            <h2 className="text-4xl md:text-[50px] font-black text-[#1a1a1a] tracking-tight leading-[1.2] uppercase italic">
-              {t("residency.title")}
-            </h2>
-            <h2 className="text-4xl md:text-[50px] font-black text-blue-700 tracking-tight leading-[1.2] uppercase italic">
-              {t("residency.title_one")}
-            </h2>
-            <h2 className="text-4xl md:text-[50px] font-black text-[#1a1a1a] tracking-tight leading-[1.2] uppercase italic">
-              {t("residency.title_two")}
-            </h2>
-          </motion.div>
-
-          {/* Features Box */}
+        {/* Right Column - Content */}
+        <div className="space-y-8">
           <motion.div
-            variants={fadeInUp}
-            className="border-t border-gray-200 pt-8 md:pt-10"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="space-y-4"
           >
-            <div className="border border-gray-200 rounded-[2.5rem] p-8 md:p-12 bg-white/40 backdrop-blur-sm shadow-sm">
-              <ul className="space-y-5">
-                {Array.isArray(features) &&
-                  features.map((feature, index) => (
-                    <li
-                      key={index}
-                      className="text-lg md:text-xl text-gray-800 font-medium flex items-center"
-                    >
-                      <span className="inline-block w-2.5 h-2.5 bg-black mr-4 shrink-0"></span>
-                      {feature}
-                    </li>
-                  ))}
-              </ul>
-            </div>
+            <motion.span
+              variants={fadeInUp}
+              className="text-blue-900 font-bold tracking-[0.2em] text-xs uppercase block"
+            >
+              Next-Gen Solutions
+            </motion.span>
+
+            {/* Syntax Error Fixed: Opening and Closing tags matched */}
+            <motion.h2
+              variants={fadeInUp}
+              className="text-4xl md:text-5xl font-black text-black leading-tight tracking-tight uppercase italic"
+            >
+              {t("residency.title")} <br />
+              <span className="text-blue-900 not-italic">
+                {t("residency.title_one")}
+              </span>{" "}
+              <br />
+              {t("residency.title_two")}
+            </motion.h2>
+
+            <motion.div
+              variants={fadeInUp}
+              className="w-16 h-1 bg-[#00CCFF] rounded-full"
+            />
           </motion.div>
 
-          {/* Availability Text */}
-          <motion.div variants={fadeInUp} className="pt-2">
-            <p className="text-2xl md:text-3xl text-gray-900 font-bold leading-tight max-w-lg italic">
-              {t("residency.availability")}
-            </p>
+          {/* Features List */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ staggerChildren: 0.1 }}
+            className="space-y-5"
+          >
+            {Array.isArray(features) &&
+              features.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  variants={fadeInUp}
+                  className="flex items-start gap-4 p-4 rounded-2xl hover:bg-blue-900 transition-colors border border-transparent group"
+                >
+                  <div className="mt-1 w-5 h-5 rounded-full border-2 border-blue-500 flex items-center justify-center shrink-0 group-hover:border-white">
+                    <div className="w-1.5 h-1.5 bg-blue-500 rounded-full group-hover:bg-white" />
+                  </div>
+                  <p className="text-base md:text-lg text-blue-500 font-medium leading-relaxed group-hover:text-white">
+                    {feature}
+                  </p>
+                </motion.div>
+              ))}
           </motion.div>
-        </motion.div>
+
+          {/* Status Bar */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="flex items-center gap-4 pt-6"
+          >
+            <div className="px-4 py-1.5 rounded-full bg-blue-900 border border-white/10 text-white text-[10px] font-bold tracking-[0.2em] uppercase">
+              {t("residency.availability")}
+            </div>
+            <div className="flex-1 h-px bg-linear-to-r from-white/10 to-transparent" />
+          </motion.div>
+        </div>
       </div>
     </section>
   );

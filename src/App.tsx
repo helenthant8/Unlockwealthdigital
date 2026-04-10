@@ -4,6 +4,7 @@ import Footers from "./components/common/Footer";
 import Home from "./pages/Home";
 import ServicePage from "./pages/Service";
 import ContactPage from "./pages/Contact";
+import AboutPage from "./pages/About";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/service" element={<ServicePage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>

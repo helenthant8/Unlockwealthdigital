@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { motion, AnimatePresence, type Variants } from "framer-motion";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { useTranslation } from "react-i18next";
 import { MdLanguage } from "react-icons/md";
@@ -8,106 +8,134 @@ import Logo from "../../assets/logo.png";
 
 function Navbar() {
   const { t, i18n } = useTranslation();
-
   const [isOpen, setIsOpen] = useState(false);
-  const navItems = ["Home", "Service", "Contact"];
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleLanguage = () => {
     const nextLang = i18n.language === "en" ? "mm" : "en";
     i18n.changeLanguage(nextLang);
   };
 
-  const menuVariants: Variants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
-    exit: { opacity: 0, y: -20, transition: { duration: 0.2 } },
-  };
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Service", path: "/service" },
+    { name: "Contact", path: "/contact" },
+  ];
 
   return (
-    <div className="w-full px-6 pt-6 relative z-1000">
-      <nav className="max-w-7xl mx-auto flex items-center justify-between bg-nav-gradient border border-brand-soft rounded-2xl px-6 md:px-8 py-3 shadow-sm backdrop-blur-md relative">
+    <nav
+      className={`fixed top-0 left-0 w-full z-1000 transition-all duration-300 px-6 md:px-12 py-4 ${
+        scrolled ? "bg-black/10 shadow-2xl py-3" : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo Section */}
-        <Link to="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 flex items-center justify-center">
-            <img src={Logo} alt="Resort Logo" className="w-full h-full" />
+        <Link to="/" className="flex items-center gap-2">
+          <div className="w-9 h-9">
+            <img
+              src={Logo}
+              alt="Logo"
+              className="w-full h-full object-contain"
+            />
           </div>
-          <span className="font-bold text-lg md:text-xl text-brand-dark tracking-tight">
-            {t("hero.title")}
+          <span className="text-2xl font-black text-white tracking-tighter uppercase">
+            Unlock {""}
+            <span className="text-blue-700">Wealth Digital</span>
           </span>
         </Link>
 
-        {/* Right Section: Desktop Links & Language Switcher */}
-        <div className="hidden md:flex items-center gap-10">
+        {/* Desktop Links & Actions */}
+        <div className="hidden md:flex items-center gap-12">
           <ul className="flex items-center gap-10">
-            {navItems.map((item) => (
-              <li key={item}>
+            {navLinks.map((link) => (
+              <li key={link.name}>
                 <Link
-                  to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                  className="text-lg font-medium text-gray-800 hover:text-blue-500 transition-all duration-300"
+                  to={link.path}
+                  className={`text-sm font-bold uppercase tracking-widest transition-colors hover:text-blue-900 ${
+                    scrolled
+                      ? location.pathname === link.path
+                        ? "text-white"
+                        : "text-blue-900"
+                      : "text-blue-500"
+                  }`}
                 >
-                  {/* t(`navbar.${item.toLowerCase()}`) */}
-                  {t(`navbar.${item.toLowerCase()}`)}
+                  {t(`navbar.${link.name.toLowerCase()}`)}
                 </Link>
               </li>
             ))}
           </ul>
 
-          {/* Desktop Language Button */}
-          <button
-            onClick={toggleLanguage}
-            className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-gray-200 hover:border-blue-400 hover:bg-blue-50 transition-all text-sm font-bold text-gray-700"
-          >
-            <MdLanguage className="text-blue-500 text-lg" />
-            {i18n.language === "en" ? "မြန်မာ" : "EN"}
-          </button>
+          <div className="flex items-center gap-6">
+            {/* Language Switcher */}
+            <button
+              onClick={toggleLanguage}
+              className="text-blue-500 hover:text-blue-900 flex items-center gap-2 text-xs font-bold transition-all"
+            >
+              <MdLanguage size={18} />
+              {i18n.language === "en" ? "MM" : "EN"}
+            </button>
+          </div>
         </div>
 
-        {/* Mobile: Language & Menu Buttons */}
-        <div className="flex items-center gap-4 md:hidden">
-          {/* Mobile Language Button */}
+        {/* Mobile Toggle */}
+        <div className="md:hidden flex items-center gap-4">
           <button
             onClick={toggleLanguage}
-            className="p-2 rounded-lg bg-gray-50 text-blue-600 font-bold text-xs border border-gray-100"
+            className="text-[#00CCFF] font-bold text-xs uppercase"
           >
             {i18n.language === "en" ? "MM" : "EN"}
           </button>
-
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-3xl text-gray-800 focus:outline-none"
+            className="text-[#00CCFF] text-3xl"
           >
             {isOpen ? <HiX /> : <HiMenuAlt3 />}
           </button>
         </div>
 
-        {/* Mobile Dropdown Menu */}
+        {/* Mobile Menu */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              variants={menuVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              className="absolute top-[110%] left-0 w-full bg-white border border-gray-100 rounded-2xl shadow-xl py-8 md:hidden overflow-hidden z-1001"
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 100 }}
+              className="fixed inset-0 top-0 left-0 w-full h-screen bg-[#002B5B] flex flex-col items-center justify-center gap-10 md:hidden z-50"
             >
-              <ul className="flex flex-col items-center gap-6">
-                {navItems.map((item) => (
-                  <li key={item}>
-                    <Link
-                      to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                      onClick={() => setIsOpen(false)}
-                      className="text-xl font-semibold text-gray-800 hover:text-blue-500 transition-all"
-                    >
-                      {t(`navbar.${item.toLowerCase()}`)}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="absolute top-8 right-8 text-white text-4xl"
+              >
+                <HiX />
+              </button>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  onClick={() => setIsOpen(false)}
+                  className="text-2xl font-black text-white hover:text-[#00CCFF] uppercase tracking-[0.3em]"
+                >
+                  {t(`navbar.${link.name.toLowerCase()}`)}
+                </Link>
+              ))}
+              <Link to="/contact" onClick={() => setIsOpen(false)}>
+                <button className="bg-[#00CCFF] text-[#002B5B] px-12 py-4 rounded-full font-black uppercase tracking-widest text-lg">
+                  Contact Us
+                </button>
+              </Link>
             </motion.div>
           )}
         </AnimatePresence>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }
 
