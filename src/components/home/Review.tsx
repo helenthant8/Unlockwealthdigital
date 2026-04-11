@@ -1,8 +1,8 @@
 import { motion, type Variants } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import WendyPhoto from "../../assets/pp1.jpg";
-import HaileyPhoto from "../../assets/pp2.jpg";
-import ThomasPhoto from "../../assets/pp3.jpg";
+import WendyPhoto from "../../assets/nana.jpg";
+import HaileyPhoto from "../../assets/kim.jpg";
+import ThomasPhoto from "../../assets/Thomas.jpg";
 import ReviewPhoto from "../../assets/feedback.svg";
 import LeafSVG from "../../assets/faq.svg";
 import Partical from "../../utils/Partical";

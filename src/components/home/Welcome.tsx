@@ -38,7 +38,7 @@ function Welcome() {
         {/* Welcome Header & Description */}
         <div className="space-y-10">
           <motion.div variants={fadeInUp} className="space-y-4">
-            <h2 className="text-5xl md:text-7xl font-black text-blue-900 tracking-tighter uppercase italic leading-[1.1]">
+            <h2 className="text-5xl md:text-7xl font-black text-blue-900 tracking-tighter uppercase italic leading-[1.1] relative">
               {t("welcome.title")}
             </h2>
           </motion.div>
