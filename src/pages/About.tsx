@@ -1,7 +1,10 @@
 import { motion, type Variants } from "framer-motion";
 import HelenPhoto from "../assets/helen.jpg";
+import { useTranslation } from "react-i18next";
 
 function AboutPage() {
+  const {t} = useTranslation();
+
   const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -83,23 +86,11 @@ function AboutPage() {
               variants={fadeInUp}
               className="space-y-8"
             >
-              <p className="text-xl md:text-2xl text-black font-bold leading-snug italic opacity-90">
-                "Leading the next generation of digital strategies in Myanmar
-                with a focus on high-impact growth."
-              </p>
-
-              <div className="space-y-6 text-black/80 text-base md:text-lg leading-relaxed font-medium">
+              <div className="space-y-6 text-black/80 text-base md:text-lg leading-relaxed italic font-medium">
                 <p>
-                  As a digital strategist and developer, I specialize in
-                  bridging the gap between complex technology and business
-                  results. My focus is on creating digital assets that don't
-                  just look premium but perform at a global standard.
+                  {t("about.title")}
                 </p>
-                <p>
-                  Every project at Unlock Wealth Digital is personally overseen
-                  to ensure we deliver unmatched quality and scalable solutions
-                  for our clients.
-                </p>
+                
               </div>
             </motion.div>
           </div>
