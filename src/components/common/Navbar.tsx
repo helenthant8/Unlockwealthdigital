@@ -63,8 +63,8 @@ function Navbar() {
                     scrolled
                       ? location.pathname === link.path
                         ? "text-white"
-                        : "text-blue-900"
-                      : "text-blue-500"
+                        : "text-blue-950"
+                      : "text-blue-800"
                   }`}
                 >
                   {t(`navbar.${link.name.toLowerCase()}`)}
@@ -77,7 +77,7 @@ function Navbar() {
             {/* Language Switcher */}
             <button
               onClick={toggleLanguage}
-              className="text-blue-500 hover:text-blue-900 flex items-center gap-2 text-xs font-bold transition-all"
+              className="text-blue-800 hover:text-blue-900 flex items-center gap-2 text-xs font-bold transition-all"
             >
               <MdLanguage size={18} />
               {i18n.language === "en" ? "MM" : "EN"}
