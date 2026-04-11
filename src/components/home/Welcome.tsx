@@ -59,11 +59,11 @@ function Welcome() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
           {/* Our Mission */}
           <motion.div variants={fadeInUp} className="space-y-8 group">
-            <h3 className="text-4xl md:text-5xl font-black text-blue-900 tracking-tighter uppercase italic leading-none group-hover:text-yellow-900 transition-colors">
+            <h3 className="text-4xl md:text-5xl font-black text-blue-900 tracking-tighter uppercase italic leading-none group-hover:text-yellow-900 transition-colors relative">
               {t("welcome.mission_title")}
             </h3>
 
-            <div className="w-full border-t border-blue-900 pt-10">
+            <div className="w-full border-t border-blue-900 pt-10 relative">
               <p className="text-lg md:text-xl text-blue-900 leading-relaxed max-w-md font-medium">
                 {t("welcome.mission_text")}
               </p>

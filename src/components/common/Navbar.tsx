@@ -108,7 +108,7 @@ function Navbar() {
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 100 }}
-              className="fixed inset-0 top-0 left-0 w-full h-screen bg-[#002B5B] flex flex-col items-center justify-center gap-10 md:hidden z-50"
+              className="fixed inset-0 top-0 left-0 w-full h-screen bg-linear-to-br from-[#99C8FF] via-white to-[#99C8FF] opacity-90 flex flex-col items-center justify-center gap-10 md:hidden z-50"
             >
               <button
                 onClick={() => setIsOpen(false)}
@@ -121,16 +121,11 @@ function Navbar() {
                   key={link.name}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className="text-2xl font-black text-white hover:text-[#00CCFF] uppercase tracking-[0.3em]"
+                  className="text-2xl font-black text-blue-800 hover:text-yellow-950 uppercase tracking-[0.3em]"
                 >
                   {t(`navbar.${link.name.toLowerCase()}`)}
                 </Link>
               ))}
-              <Link to="/contact" onClick={() => setIsOpen(false)}>
-                <button className="bg-[#00CCFF] text-[#002B5B] px-12 py-4 rounded-full font-black uppercase tracking-widest text-lg">
-                  Contact Us
-                </button>
-              </Link>
             </motion.div>
           )}
         </AnimatePresence>
