@@ -89,13 +89,13 @@ function Navbar() {
         <div className="md:hidden flex items-center gap-4">
           <button
             onClick={toggleLanguage}
-            className="text-[#00CCFF] font-bold text-xs uppercase"
+            className="text-blue-950 font-bold text-xs uppercase"
           >
             {i18n.language === "en" ? "MM" : "EN"}
           </button>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-[#00CCFF] text-3xl"
+            className="text-blue-950 text-3xl"
           >
             {isOpen ? <HiX /> : <HiMenuAlt3 />}
           </button>
@@ -112,7 +112,7 @@ function Navbar() {
             >
               <button
                 onClick={() => setIsOpen(false)}
-                className="absolute top-8 right-8 text-white text-4xl"
+                className="absolute top-8 right-8 text-blue-950 text-4xl"
               >
                 <HiX />
               </button>
